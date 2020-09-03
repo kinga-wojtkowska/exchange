@@ -1,0 +1,37 @@
+h1 {
+    font-size:30px;
+    margin-left:30px;
+    font-family: Arial;
+}
+.content {
+    padding: 30px;
+    border: 3px solid green;
+    width: 400px;
+    background-color: rgba(255,255,255,0.6);
+}
+
+#code {
+    font-size:20px;
+}
+
+#amount {
+    font-size:20px;
+}
+
+.button {
+    font-size:20px;
+    width: 100px;
+    height: 30px;
+    font-family: Arial;
+    color:rgb(53, 66, 54);
+    background-color:rgb(180, 209, 180);
+}
+
+.button:hover {
+    color: #c0dfc5;
+    background-color:green;
+}
+
+p {
+    font-size:20px;
+}
