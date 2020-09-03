@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>Kantor walutowy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% endblock %}
+</head>
+<body>
+    <h1>~ £ $ Kantor walutowy $ £ ~</h1>
+    <div class="content">{% block content %}{% endblock %}</div>
+    
+</body>
+</html>

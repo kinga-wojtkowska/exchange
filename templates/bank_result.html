@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <p>Wybrano walutę: <b>{{currency}}</b></p>
+    <p>Podano zapotrzebowanie na kwotę: <b>{{'%0.2f'| format(amount)}} {{code}}</b></p>
+    <p>Aktualny kurs wynosi: <b>{{ask}}</b></p>
+    <p>Zakup powyższej kwoty będzie kosztował: <b>{{'%0.2f'| format(result)}} PLN</b></p>
+    <a href = "/">Wróc do kalkulatora</a>
+    
+{% endblock %}

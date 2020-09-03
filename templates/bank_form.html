@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="post">
+        <label for="code"><h2>Wybierz walutę, którą chcesz kupić:</h2></label><br>
+        <select name="code" id="code">
+        {% for i in code %}
+            <option value={{i}}>{{i}}</option>
+        {% endfor %}
+        </select>
+        <br><br>
+        <label for="amount"><h2>Podaj kwotę jaką chcesz zakupić:</h2></label><br>
+        <input id="amount" type="number" placeholder="wpisz kwotę" name="amount" required><br><br><br>
+        <input class="button" type="submit" value="Przelicz">
+    </form>
+    
+{% endblock %}
