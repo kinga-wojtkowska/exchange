@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = 'sekretnyklucz'
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
 rates = data[0]['rates']
-code = [rates[i]['code'] for i,j in enumerate(rates)]
+code_l = [rates[i]['code'] for i,j in enumerate(rates)]
 actual_date = data[0]['effectiveDate']
 
 def export_data_to_csv():
@@ -26,13 +26,11 @@ def export_data_to_csv():
             bank_data.writerow([cur, cod, bid, ask])
         print("Succesfully saved")
 
-@app.route("/")
-def main():
-    return render_template("bank_form.html", code=code)
-
 @app.route("/", methods=['GET', 'POST'])
-def cost():    
-    if request.method == 'POST':
+def main():
+    if request.method == 'GET':
+        return render_template("bank_form.html", code_l=code_l)   
+    elif request.method == 'POST':
         code = request.form.get("code")
         amount = float(request.form.get("amount"))
         for i,j in enumerate(rates):
@@ -41,7 +39,6 @@ def cost():
                 ask = float(rates[i]['ask'])
         result = amount * ask            
         return render_template('bank_result.html', code=code, amount=amount, currency=currency, ask=ask, result=result)
-    return render_template('bank_form.html')
 
 if __name__ == "__main__":
     export_data_to_csv()
