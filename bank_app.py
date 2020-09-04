@@ -1,12 +1,7 @@
-import requests, csv, os
+import requests, csv
 from flask import Flask, render_template, request, redirect
 
-THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(THIS_FOLDER, 'uploads')
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SECRET_KEY'] = 'sekretnyklucz'
 
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
