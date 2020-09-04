@@ -5,7 +5,7 @@
     <form method="post">
         <label for="code"><h2>Wybierz walutę, którą chcesz kupić:</h2></label><br>
         <select name="code" id="code">
-        {% for i in code %}
+        {% for i in code_l %}
             <option value={{i}}>{{i}}</option>
         {% endfor %}
         </select>
